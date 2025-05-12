@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://e1mo3tpa3r5y"]
+
+[ext_resource type="Texture2D" uid="uid://drxe1f482t0xy" path="res://other/3x3x3.png" id="1_rici8"]
+
+[resource]
+resource_name = "palette"
+cull_mode = 2
+albedo_texture = ExtResource("1_rici8")

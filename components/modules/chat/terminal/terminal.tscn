@@ -1,0 +1,165 @@
+[gd_scene load_steps=12 format=3 uid="uid://dink8mypsawq"]
+
+[ext_resource type="Script" uid="uid://d1l71a2vuwx7f" path="res://components/modules/chat/terminal/terminal.gd" id="1_q1aq7"]
+[ext_resource type="PackedScene" uid="uid://c8lajmkfo5c8f" path="res://components/modules/chat/terminal/message.tscn" id="2_3e40u"]
+[ext_resource type="Script" uid="uid://d1xlkqhyv57pv" path="res://other/animators/SceneAnimator.gd" id="3_46h1j"]
+[ext_resource type="Texture2D" uid="uid://c4dmbu3h2txxh" path="res://other/loading.png" id="4_rwvbp"]
+[ext_resource type="Shader" uid="uid://dt5po33byxdel" path="res://components/modules/chat/terminal/test.gdshader" id="5_rwvbp"]
+
+[sub_resource type="Animation" id="Animation_ppg8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/Loading:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jdldx"]
+resource_name = "finish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rovn2"]
+resource_name = "prepare"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/Loading:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aypam"]
+resource_name = "start"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.06667, 10),
+"transitions": PackedFloat32Array(1, 1, 0.933033),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/Loading:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667, 2.06667, 3.06667, 4.06667, 5.06667, 6.06667, 7.03333, 8.1, 9.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0.00524139), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 0.944188)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgfsw"]
+_data = {
+&"RESET": SubResource("Animation_ppg8p"),
+&"finish": SubResource("Animation_jdldx"),
+&"prepare": SubResource("Animation_rovn2"),
+&"start": SubResource("Animation_aypam")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aypam"]
+shader = ExtResource("5_rwvbp")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.6
+shader_parameter/warp_amount = 0.0
+shader_parameter/vignette_amount = 0.2
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/grille_amount = 1.0
+shader_parameter/brightness_boost = 1.2
+
+[node name="Terminal" type="Node2D" node_paths=PackedStringArray("list")]
+script = ExtResource("1_q1aq7")
+messageScene = ExtResource("2_3e40u")
+list = NodePath("list")
+
+[node name="SceneAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wgfsw")
+}
+script = ExtResource("3_46h1j")
+type = 3
+metadata/_custom_type_script = "uid://d1xlkqhyv57pv"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 322.0
+offset_bottom = 715.0
+color = Color(0, 0, 0, 1)
+
+[node name="list" type="VBoxContainer" parent="."]
+clip_contents = true
+offset_left = 12.0
+offset_right = 322.0
+offset_bottom = 715.0
+size_flags_vertical = 0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 322.0
+offset_bottom = 715.0
+color = Color(0, 0, 0, 1)
+
+[node name="Loading" type="Sprite2D" parent="ColorRect2"]
+modulate = Color(0.31, 0.4365, 1, 0)
+position = Vector2(162, 361)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_rwvbp")
+
+[node name="shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aypam")
+offset_right = 322.0
+offset_bottom = 715.0

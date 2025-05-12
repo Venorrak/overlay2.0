@@ -1,0 +1,67 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="overlay2.0"
+run/main_scene="uid://bgg78e8borefc"
+config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
+config/icon="res://components/main/icon.svg"
+
+[audio]
+
+driver/enable_input=true
+
+[autoload]
+
+Loggie="*res://addons/loggie/loggie.gd"
+SignalBus="*res://global/SignalBus.gd"
+StreamBus="*res://global/StreamBus.gd"
+AudioManager="*res://global/AudioManager.tscn"
+BdManager="*res://global/BDManager.tscn"
+ChatHandler="*res://global/chatHandler.gd"
+FloatingMenu="*res://components/floatingMenu/floatingMenu.tscn"
+AnimatorOperator="*res://global/animator.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
+window/size/borderless=true
+window/subwindows/embed_subwindows=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/loggie/plugin.cfg", "res://addons/richtext2/plugin.cfg", "res://addons/sprite_mesh/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://bb62d7tm44v0q"
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+
+[richer_text_label]
+
+fonts={
+&"PatrickHandSC": "res://addons/loggie/assets/theme/fonts/PatrickHandSC-Regular.ttf",
+&"TepidTerminal": "res://TepidTerminal.ttf",
+&"coffee_soda": "res://addons/loggie/assets/theme/fonts/coffee_soda.ttf",
+&"unifont-16.0.03": "res://unifont-16.0.03.otf"
+}
+colors={}

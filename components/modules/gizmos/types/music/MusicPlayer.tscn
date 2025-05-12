@@ -1,0 +1,212 @@
+[gd_scene load_steps=8 format=3 uid="uid://k4ncm1avyqei"]
+
+[ext_resource type="Texture2D" uid="uid://bfwnwpg7lpvn0" path="res://components/modules/gizmos/types/music/vinyl-Sheet_sheet.png" id="1_3ocha"]
+[ext_resource type="Script" uid="uid://uduusixhq3ey" path="res://components/modules/gizmos/types/music/music_player.gd" id="1_b4q5e"]
+[ext_resource type="Script" uid="uid://bjpryj74sgncu" path="res://components/modules/gizmos/types/music/animatedSprite.gd" id="2_s21ep"]
+[ext_resource type="Script" uid="uid://dcix070n06qm8" path="res://addons/richtext2/text_effects/anims/rte_wfc.gd" id="3_523a6"]
+[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="4_b4q5e"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_b4q5e"]
+resource_name = "wfc"
+script = ExtResource("3_523a6")
+metadata/rt = 2281634349639
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gc81p"]
+resource_name = "wfc"
+script = ExtResource("3_523a6")
+metadata/rt = 2282003448400
+
+[node name="MusicPlayer" type="Node2D" node_paths=PackedStringArray("titleLabel", "artistLabel")]
+script = ExtResource("1_b4q5e")
+titleLabel = NodePath("title")
+artistLabel = NodePath("author")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 364.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.305882, 0.435294, 1, 1)
+position = Vector2(83, 88)
+texture = ExtResource("1_3ocha")
+hframes = 2
+script = ExtResource("2_s21ep")
+animationTime = 2.0
+
+[node name="title" type="RichTextLabel" parent="."]
+offset_left = 165.0
+offset_top = 5.0
+offset_right = 350.0
+offset_bottom = 82.0
+theme_override_colors/default_color = Color(0.305882, 0.435294, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0565486, 0.0903484, 0.19524, 1)
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+scroll_active = false
+vertical_alignment = 2
+custom_effects = [SubResource("RichTextEffect_b4q5e")]
+script = ExtResource("4_b4q5e")
+animation = "wfc"
+_forced_finish_delay = -0.010895
+animation = "wfc"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 15.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = ""
+effects = 2
+alignment = 0
+color = Color(0.305882, 0.435294, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 16
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = true
+override_fitContent = false
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+metadata/rand = Array[int]([1696365447])
+
+[node name="line" type="ColorRect" parent="."]
+offset_left = 160.0
+offset_top = 87.0
+offset_right = 355.0
+offset_bottom = 89.0
+color = Color(0.305882, 0.435294, 1, 1)
+
+[node name="author" type="RichTextLabel" parent="."]
+offset_left = 165.0
+offset_top = 94.0
+offset_right = 350.0
+offset_bottom = 167.0
+theme_override_colors/default_color = Color(0.305882, 0.435294, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0565486, 0.0903484, 0.19524, 1)
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 1
+custom_effects = [SubResource("RichTextEffect_gc81p")]
+script = ExtResource("4_b4q5e")
+animation = "wfc"
+_forced_finish_delay = -0.010895
+animation = "wfc"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 15.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = ""
+effects = 2
+alignment = 0
+color = Color(0.305882, 0.435294, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 16
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = true
+override_fitContent = false
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+metadata/rand = Array[int]([3215635485, 3132667422, 2361857808, 2313893196, 1233867712, 649335299, 1387581063, 2918816567, 1624914749, 1297532989, 1682745376, 2765474640, 3149666512, 1302319654])

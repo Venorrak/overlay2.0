@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2lu555hu815u"]
+
+[ext_resource type="Script" uid="uid://cn4han8p43qs7" path="res://global/bd_manager.gd" id="1_j118r"]
+
+[node name="BdManager" type="Node"]
+script = ExtResource("1_j118r")

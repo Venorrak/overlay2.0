@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbq8osn1elqa6"]
+
+[ext_resource type="Script" uid="uid://d1h02j73pwg66" path="res://components/modules/gizmos/types/stats/stats.gd" id="1_d4axl"]
+
+[node name="Stats" type="Node2D" node_paths=PackedStringArray("fpsLabel", "ramLabel", "nodesLabel", "vramLabel")]
+script = ExtResource("1_d4axl")
+fpsLabel = NodePath("VBoxContainer/HBoxContainer/stat")
+ramLabel = NodePath("VBoxContainer/HBoxContainer2/stat")
+nodesLabel = NodePath("VBoxContainer/HBoxContainer3/stat")
+vramLabel = NodePath("VBoxContainer/HBoxContainer4/stat")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 364.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 359.0
+offset_bottom = 167.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="prefix" type="Label" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "FPS : "
+
+[node name="stat" type="Label" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="suffix" type="Label" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="prefix" type="Label" parent="VBoxContainer/HBoxContainer2"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RAM : "
+
+[node name="stat" type="Label" parent="VBoxContainer/HBoxContainer2"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="suffix" type="Label" parent="VBoxContainer/HBoxContainer2"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Gb"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="prefix" type="Label" parent="VBoxContainer/HBoxContainer3"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Instanciated : "
+
+[node name="stat" type="Label" parent="VBoxContainer/HBoxContainer3"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="suffix" type="Label" parent="VBoxContainer/HBoxContainer3"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = " Objects"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="prefix" type="Label" parent="VBoxContainer/HBoxContainer4"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "VRAM : "
+
+[node name="stat" type="Label" parent="VBoxContainer/HBoxContainer4"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="suffix" type="Label" parent="VBoxContainer/HBoxContainer4"]
+modulate = Color(0.305882, 0.435294, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Gb"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

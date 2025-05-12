@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2qnekulewvhd"]
+
+[ext_resource type="ArrayMesh" uid="uid://d0poghkqt3w01" path="res://other/screwMesh.res" id="1_e01p5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e01p5"]
+height = 0.291263
+radius = 0.102539
+
+[node name="Screw" type="RigidBody3D"]
+center_of_mass_mode = 1
+freeze = true
+
+[node name="ScrewMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, -0.340595)
+mesh = ExtResource("1_e01p5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -3.75079e-09, 3.75079e-09, -0.0858081)
+shape = SubResource("CylinderShape3D_e01p5")
+disabled = true

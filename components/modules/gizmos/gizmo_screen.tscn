@@ -1,0 +1,176 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvslon68ghodf"]
+
+[ext_resource type="Script" uid="uid://d1xlkqhyv57pv" path="res://other/animators/SceneAnimator.gd" id="1_sfq53"]
+[ext_resource type="PackedScene" uid="uid://npkh6e4o6mcp" path="res://components/modules/gizmos/types/Alerts/alertFeed.tscn" id="2_lts10"]
+[ext_resource type="PackedScene" uid="uid://k4ncm1avyqei" path="res://components/modules/gizmos/types/music/MusicPlayer.tscn" id="2_pxo02"]
+[ext_resource type="PackedScene" uid="uid://bbq8osn1elqa6" path="res://components/modules/gizmos/types/stats/Stats.tscn" id="3_xokx8"]
+[ext_resource type="Shader" uid="uid://dt5po33byxdel" path="res://components/modules/chat/terminal/test.gdshader" id="4_xokx8"]
+[ext_resource type="Texture2D" uid="uid://c4dmbu3h2txxh" path="res://other/loading.png" id="5_q7kfw"]
+
+[sub_resource type="Animation" id="Animation_4mapw"]
+resource_name = "start"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back2/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667, 2.06667, 3.06667, 4.06667, 5.06667, 6.06667, 7.06667, 8.06667, 9.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("back2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.03333, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_apxi2"]
+resource_name = "prepare"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("back2/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fyjtu"]
+resource_name = "finish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3pq3b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("back2/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eocms"]
+_data = {
+&"RESET": SubResource("Animation_3pq3b"),
+&"finish": SubResource("Animation_fyjtu"),
+&"prepare": SubResource("Animation_apxi2"),
+&"start": SubResource("Animation_4mapw")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sof8p"]
+shader = ExtResource("4_xokx8")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.604
+shader_parameter/warp_amount = 0.0
+shader_parameter/vignette_amount = 0.2
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/grille_amount = 1.0
+shader_parameter/brightness_boost = 1.2
+
+[node name="GizmoScreen" type="Node2D"]
+
+[node name="SceneAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eocms")
+}
+script = ExtResource("1_sfq53")
+type = 4
+metadata/_custom_type_script = "uid://d1xlkqhyv57pv"
+
+[node name="back" type="ColorRect" parent="."]
+offset_right = 1100.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="MusicPlayer" parent="." instance=ExtResource("2_pxo02")]
+
+[node name="AlertFeed" parent="." instance=ExtResource("2_lts10")]
+position = Vector2(368, 0)
+
+[node name="Stats" parent="." instance=ExtResource("3_xokx8")]
+position = Vector2(734, 0)
+
+[node name="line1" type="ColorRect" parent="."]
+offset_left = 364.5
+offset_right = 367.5
+offset_bottom = 172.0
+color = Color(0.305882, 0.435294, 1, 1)
+
+[node name="line2" type="ColorRect" parent="."]
+offset_left = 730.5
+offset_right = 733.5
+offset_bottom = 172.0
+color = Color(0.305882, 0.435294, 1, 1)
+
+[node name="back2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1100.0
+offset_bottom = 172.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="back2"]
+modulate = Color(0.31, 0.4365, 1, 0)
+position = Vector2(551, 86)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("5_q7kfw")
+
+[node name="shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sof8p")
+offset_right = 1100.0
+offset_bottom = 172.0
