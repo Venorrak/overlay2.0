@@ -39,6 +39,10 @@ window/size/mode=4
 window/size/borderless=true
 window/subwindows/embed_subwindows=false
 
+[dotnet]
+
+project/assembly_name="overlay2.0"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/loggie/plugin.cfg", "res://addons/richtext2/plugin.cfg", "res://addons/sprite_mesh/plugin.cfg")

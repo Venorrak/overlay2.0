@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://dwps2se5p61tx" path="res://components/modules/content/capture/capture.gd" id="1_2ba6v"]
 [ext_resource type="PackedScene" uid="uid://75u7mvcs5cbb" path="res://components/modules/content/capture/window/window.tscn" id="2_lh58l"]
 
-[node name="Capture" type="Node2D" node_paths=PackedStringArray("poller")]
+[node name="Capture" type="Node2D"]
 script = ExtResource("1_2ba6v")
-poller = NodePath("WindowPoller")
 windowScene = ExtResource("2_lh58l")
 
 [node name="WindowPoller" type="WindowPoller" parent="."]
@@ -13,4 +12,4 @@ windowScene = ExtResource("2_lh58l")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1050.0
-color = Color(0, 0, 0, 1)
+color = Color(0.02, 0.02, 0.02, 1)

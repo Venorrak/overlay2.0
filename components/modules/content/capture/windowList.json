@@ -1,0 +1,13 @@
+{
+	"whiteList": [
+		"godot_v4.4.1-stable_win64",
+		"windowsterminal",
+		"brave",
+		"code",
+		"aseprite"
+	],
+	"blackList": [
+		"overlay2.0 (debug)",
+		"menu"
+	]
+}

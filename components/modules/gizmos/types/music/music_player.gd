@@ -1,10 +1,10 @@
 extends Node2D
-@export var titleLabel : RichTextAnimation
-@export var artistLabel : RichTextAnimation
+@export var titleLabel : RichTextLabel
+@export var artistLabel : RichTextLabel
 
 func _ready() -> void:
 	StreamBus.subscribe("spotify.song.start", musicStart)
 
 func musicStart(payload : Dictionary) -> void:
-	titleLabel.bbcode = payload["title"]
-	artistLabel.bbcode = payload["artist"]
+	titleLabel.text = payload["title"]
+	artistLabel.text = payload["artist"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cak1tmol4nwa5"]
+
+[ext_resource type="Script" uid="uid://h674nk84eeam" path="res://components/modules/content/JoelShower/joel_shower.gd" id="1_xo354"]
+[ext_resource type="PackedScene" uid="uid://cjpyqmcfacdi0" path="res://components/modules/content/JoelShower/joel.tscn" id="2_7xb6b"]
+
+[node name="JoelShower" type="Node2D"]
+script = ExtResource("1_xo354")
+joelScene = ExtResource("2_7xb6b")

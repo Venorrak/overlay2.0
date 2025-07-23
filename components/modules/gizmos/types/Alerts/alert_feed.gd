@@ -42,7 +42,7 @@ func onFollow(payload: Dictionary) -> void:
 
 func onSub(payload: Dictionary) -> void:
 	var newAlert = singleAlertScene.instantiate()
-	newAlert.setContent(payload["name"], "has subscribe", subColor, subSound)
+	newAlert.setContent(payload["name"], "has subscribed", subColor, subSound)
 	addAlertToList(newAlert)
 	
 func onSubMessage(payload: Dictionary) -> void:
@@ -55,17 +55,17 @@ func onSubGift(payload: Dictionary) -> void:
 	var gifter : String = "Anonymous"
 	if not payload["anonymous"]:
 		gifter = payload["name"]
-	newAlert.setContent(gifter, "gifted " + str(payload["count"] + " subs"), subColor, subSound)
+	newAlert.setContent(gifter, "gifted " + str(int(payload["count"])) + " subs", subColor, subSound)
 	addAlertToList(newAlert)
 
 func onRaid(payload: Dictionary) -> void:
 	var newAlert = singleAlertScene.instantiate()
-	newAlert.setContent(payload["name"], "Raided with " + str(payload["count"]), raidColor, raidSound)
+	newAlert.setContent(payload["name"], "Raided with " + str(payload["count"]) + " entities", raidColor, raidSound)
 	addAlertToList(newAlert)
 	
 func onAds(payload: Dictionary) -> void:
 	var newAlert = singleAlertScene.instantiate()
-	newAlert.setContent("Ads", "for " + str(payload["duration"]) + " secons", adsColor, adsSound)
+	newAlert.setContent("Ads", "for " + str(payload["duration"]) + " seconds", adsColor, adsSound)
 	addAlertToList(newAlert)
 
 func onCheer(payload: Dictionary) -> void:
@@ -73,5 +73,5 @@ func onCheer(payload: Dictionary) -> void:
 	var cheerer : String = "Anonymous"
 	if not payload["anonymous"]:
 		cheerer = payload["name"]
-	newAlert.setContent(cheerer, "Cheered " + str(payload["count"]) + " bits", raidColor, raidSound)
+	newAlert.setContent(cheerer, "Cheered " + str(payload["count"]) + " bits", raidColor, subSound)
 	addAlertToList(newAlert)

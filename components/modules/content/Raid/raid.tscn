@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxnk8utgyd4rs"]
+
+[ext_resource type="Script" uid="uid://b1op4x2bggpau" path="res://components/modules/content/Raid/raid.gd" id="1_xatah"]
+[ext_resource type="FontFile" uid="uid://bb62d7tm44v0q" path="res://unifont-16.0.03.otf" id="2_e7ivj"]
+[ext_resource type="Script" uid="uid://dcix070n06qm8" path="res://addons/richtext2/text_effects/anims/rte_wfc.gd" id="2_ld688"]
+[ext_resource type="Script" uid="uid://diw5njl7cgqi5" path="res://addons/richtext2/text_effects/effects/rte_sparkle.gd" id="3_ld688"]
+
+[sub_resource type="FontVariation" id="FontVariation_x4bg2"]
+base_font = ExtResource("2_e7ivj")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_6iolq"]
+base_font = ExtResource("2_e7ivj")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_s372h"]
+base_font = ExtResource("2_e7ivj")
+variation_embolden = 1.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ld688"]
+resource_name = "wfc"
+script = ExtResource("2_ld688")
+metadata/rt = 104074926236576
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_e7ivj"]
+resource_name = "sparkle"
+script = ExtResource("3_ld688")
+metadata/rt = 104074926236576
+
+[sub_resource type="FontVariation" id="FontVariation_ld688"]
+base_font = ExtResource("2_e7ivj")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_e7ivj"]
+base_font = ExtResource("2_e7ivj")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_ghf10"]
+base_font = ExtResource("2_e7ivj")
+variation_embolden = 1.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_x4bg2"]
+resource_name = "wfc"
+script = ExtResource("2_ld688")
+metadata/rt = 104075261729024
+
+[node name="Raid" type="Node2D" node_paths=PackedStringArray("title", "message", "timer")]
+script = ExtResource("1_xatah")
+title = NodePath("RichTextAnimation")
+message = NodePath("RichTextAnimation2")
+timer = NodePath("Timer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.16, 0.16, 0.16, 0.596078)
+
+[node name="RichTextAnimation" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 430)
+offset_top = 129.0
+offset_right = 1920.0
+offset_bottom = 634.0
+theme_override_colors/default_color = Color(0.341176, 0.521569, 0.988235, 1)
+theme_override_colors/font_outline_color = Color(0.0642434, 0.107401, 0.192252, 1)
+theme_override_fonts/normal_font = ExtResource("2_e7ivj")
+theme_override_fonts/italics_font = SubResource("FontVariation_x4bg2")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_6iolq")
+theme_override_fonts/bold_font = SubResource("FontVariation_s372h")
+theme_override_font_sizes/bold_italics_font_size = 42
+theme_override_font_sizes/italics_font_size = 42
+theme_override_font_sizes/mono_font_size = 42
+theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/bold_font_size = 42
+bbcode_enabled = true
+text = "
+ ███████████     █████████   █████ ██████████  
+░░███░░░░░███   ███░░░░░███ ░░███ ░░███░░░░███ 
+ ░███    ░███  ░███    ░███  ░███  ░███   ░░███
+ ░██████████   ░███████████  ░███  ░███    ░███
+ ░███░░░░░███  ░███░░░░░███  ░███  ░███    ░███
+ ░███    ░███  ░███    ░███  ░███  ░███    ███ 
+ █████   █████ █████   █████ █████ ██████████  
+░░░░░   ░░░░░ ░░░░░   ░░░░░ ░░░░░ ░░░░░░░░░░   "
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [SubResource("RichTextEffect_ld688"), SubResource("RichTextEffect_e7ivj")]
+metadata/rand = Array[int]([3615768962, 381134501, 975407821, 1051201828, 3650689803, 928136186, 720590785, 3939012187, 1452891508, 610360181, 3506563517, 3612515431, 4116599692, 3883423011, 3226963865, 3993081281, 2609004637, 2945762446, 2799457693, 2853449066, 862279205, 1344665457, 3360352596, 515466550, 1627242392, 1242285674, 2643139517, 2299074807, 815265030, 3621521928, 2449771094, 2381243300, 449162276, 3539402588, 3615333410, 1828062360, 3752033362, 1328966616, 3883224769, 1936967343, 1994638446, 1689548760, 289008076, 1591207524, 1489903243, 3713627864, 657209225, 3019506712, 2711498707, 371001944, 639889483, 1167579333, 4125644813, 37500728, 1690527841, 2260028800, 3340378778, 3217717427, 3746738241, 3338396143, 1992575441, 2958768986, 1275831161, 3828543758, 4085545358, 381695306, 1037270444, 4218595858, 114692819, 1473914614, 472180253, 567382206, 1943717355, 2961892893, 3175349370, 1420896559, 3015286389, 2546693526, 2743343704, 96094359, 1488565476, 3030937464, 3484816019, 4165376064, 3759934540, 1684465727, 1261724819, 1081012900, 2418345919, 2955619750, 3390132755, 4023474744, 2795444478, 3753776941, 29713185, 3180760526, 354410900, 3505178582, 2969414098, 327791819, 3895520081, 1188489554, 2544027484, 787278379, 2166121484, 257107054, 2464489909, 688830287, 1349666894, 1227375146, 3603241988, 426184965, 1905607582, 2122167995, 3725604040, 2862622588, 1089583339, 3946686816, 2135893208, 1052527737, 3541147601, 3544008059, 1301104685, 3879556739, 3002425668, 3976674797, 4126699364, 1290411537, 2093908052, 3779073180, 393443646, 1698233155, 3745386832, 2330379572, 1228402726, 4146995958, 2883190316, 3156702597, 2358254702, 3963478382, 3668736622, 4226145833, 1385431637, 2570504491, 415987997, 1719848322, 3620265648, 1752559592, 3233279126, 886547242, 4123213676, 1535603544, 1834261558, 554659499, 40739899, 4097508549, 3118296189, 1030275503, 1326016749, 4281614227, 417066834, 3953447631, 1592208930, 450975581, 974367713, 1086569068, 2621576937, 2539171891, 1862683726, 3913427460, 2711707333, 3047834707, 3170531179, 3592903841, 2885773476, 284037426, 2612603392, 1588163267, 4109767198, 3453239044, 220162315, 3653012008, 2468107031, 3236618835, 2313235298, 49352275, 565572855, 3913807779, 721295406, 2155833823, 3609853741, 2746843520, 4019400133, 709354370, 2762368014, 381395312, 632557391, 334275542, 168723795, 2857150479, 903446791, 1748002016, 4137972312, 2938240830, 2486443305, 677589122, 2769494822, 571150396, 1178750269, 2204445722, 1285331383, 2285908105, 2775652771, 3319655884, 3317383467, 3489114425, 3890417489, 1835748320, 1803582681, 565089966, 6792808, 2200080642, 2134419240, 783680231, 410825664, 1833451930, 4135378997, 1797425651, 3404564536, 1424586630, 1416913497, 179979302, 790162099, 2324186185, 71236556, 3865927849, 4212227211, 555457576, 4086813599, 236683995, 3735728981, 2488386136, 2852733450, 2181267459, 112903338, 1121516132, 3111718289, 935729847, 3015610572, 3795867972, 4125060841, 2650742670, 3874803934, 4081548174, 3193928951, 3518616392, 1780365312, 781968074, 3973118063, 2856646502, 1085514326, 2685738402, 1920841184, 1415681952, 1995178478, 2089511155, 584305815, 4024118947, 1593150977, 3104013654, 3820578717, 2131331302, 2872460277, 4049604761, 693844234, 2070717105, 2817019337, 939135998, 1059993698, 3842571633, 1891647880, 3085329663, 2657494031, 525774702, 3332892860, 547026554, 1953851052, 919639435, 3810772065, 3262815879, 363910296, 859926278, 822154706, 3537897247, 878133084, 3673155690, 4210217739, 849942552, 1087352290, 2775850343, 3239374277, 1763469263, 1234839557, 2297843681, 3058989116, 3346498788, 3902045662, 2289815049, 3498221257, 698494563, 494573610, 3166840904, 4236093788, 2285258647, 2365638621, 4282947175, 1211727800, 2295600921, 2506780664, 1121278713, 3698415336, 2369929835, 4215969042, 1589923581, 1559434090, 2048173827, 1680383219, 1258076352, 473204104, 2157990918, 1972781063, 1055352161, 1699298367, 1893497155, 3593237770, 4109693609, 4192263671, 4006739008, 911840996, 154350046, 3102187797, 2653574027, 2200377989, 1894596199, 2801960060, 1856309500, 2095579357, 3437371865, 3022808214, 1466273343, 2961916676, 326814338, 2268379776, 1781060799, 3046234204, 459446328, 767373803, 1680729939, 3765295526, 684100104, 3753750120, 1716139951, 1090879206, 341628935, 1876098004, 205583023, 1020756028, 166608533, 1552890952, 3556001115, 2265022966, 1761685040, 3876460098, 3198624025, 3138766918, 2350394877, 3760758300, 718777585, 3787147386, 962891418, 289676307, 3748446358, 939825320, 2565995236, 2819931111])
+metadata/mouse_position = Vector2(2618.11, 866.201)
+metadata/frame = 73768
+
+[node name="RichTextAnimation2" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+offset_top = 660.0
+offset_right = 1920.0
+offset_bottom = 979.0
+theme_override_colors/default_color = Color(0.341176, 0.521569, 0.988235, 1)
+theme_override_colors/font_outline_color = Color(0.0642434, 0.107401, 0.192252, 1)
+theme_override_fonts/normal_font = ExtResource("2_e7ivj")
+theme_override_fonts/italics_font = SubResource("FontVariation_ld688")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_e7ivj")
+theme_override_fonts/bold_font = SubResource("FontVariation_ghf10")
+theme_override_font_sizes/bold_italics_font_size = 59
+theme_override_font_sizes/italics_font_size = 59
+theme_override_font_sizes/mono_font_size = 59
+theme_override_font_sizes/normal_font_size = 59
+theme_override_font_sizes/bold_font_size = 59
+bbcode_enabled = true
+text = "Unknown raided with 0 entities !"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [SubResource("RichTextEffect_x4bg2")]
+metadata/rand = Array[int]([241806263, 762296622, 1585546992, 3566656740, 3732830148, 2740284514, 3795032382, 2774497886, 2788449377, 2785605978, 437844477, 2213719391, 285791456, 3186168632, 2746740453, 4051243322, 1246677710, 847703855, 1275832352, 2710880909, 2238636097, 1091958745, 1276544604, 2119903420, 3981601573, 2092305680, 2481200742, 2308364777, 3889780256, 935951691, 2430821280, 3478291115, 2212901709, 3970536719, 1170352189])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

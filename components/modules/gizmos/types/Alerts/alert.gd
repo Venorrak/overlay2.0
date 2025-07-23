@@ -1,5 +1,5 @@
 extends PanelContainer
-@export var label : RichTextAnimation
+@export var label : RicherTextLabel
 @export var separator : Label
 
 func setContent(title: String, message: String, color: Color = Color(0.306, 0.435, 1.0), sound: AudioStream = null) -> void:

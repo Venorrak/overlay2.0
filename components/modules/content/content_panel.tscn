@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dr5t0gwwo44aw"]
+[gd_scene load_steps=16 format=4 uid="uid://dr5t0gwwo44aw"]
 
 [ext_resource type="Texture2D" uid="uid://cdajc2npfg35j" path="res://components/modules/content/content_panel.png" id="1_exueh"]
 [ext_resource type="Script" uid="uid://1673641oowij" path="res://components/modules/module.gd" id="1_skd4k"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b8t8ligavqaeb" path="res://components/modules/content/capture/capture.tscn" id="4_a827w"]
 [ext_resource type="PackedScene" uid="uid://d2qnekulewvhd" path="res://other/screw.tscn" id="4_lhc26"]
 [ext_resource type="Script" uid="uid://xskfat1namrh" path="res://other/animators/screwsAnimator.gd" id="4_ye480"]
+[ext_resource type="PackedScene" uid="uid://cak1tmol4nwa5" path="res://components/modules/content/JoelShower/joelShower.tscn" id="8_7m5up"]
 [ext_resource type="PackedScene" uid="uid://cnqk6ft8f5ahp" path="res://components/modules/content/startupConsole/startupConsole.tscn" id="8_h78q4"]
+[ext_resource type="PackedScene" uid="uid://dxnk8utgyd4rs" path="res://components/modules/content/Raid/raid.tscn" id="8_jv3o1"]
+[ext_resource type="PackedScene" uid="uid://co7q2gu5endl8" path="res://components/modules/content/BRB/BRB.tscn" id="10_h5hjn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a827w"]
 _surfaces = [{
@@ -73,5 +76,13 @@ transparent_bg = true
 size = Vector2i(1920, 1050)
 
 [node name="Capture" parent="SubViewport" instance=ExtResource("4_a827w")]
+
+[node name="JoelShower" parent="SubViewport" instance=ExtResource("8_7m5up")]
+
+[node name="Raid" parent="SubViewport" instance=ExtResource("8_jv3o1")]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Brb" parent="SubViewport" instance=ExtResource("10_h5hjn")]
+visible = false
 
 [node name="StartupConsole" parent="SubViewport" instance=ExtResource("8_h78q4")]

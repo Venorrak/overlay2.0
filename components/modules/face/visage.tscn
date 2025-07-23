@@ -1,58 +1,30 @@
 [gd_scene load_steps=13 format=3 uid="uid://b3ftphlwatckt"]
 
+[ext_resource type="Script" uid="uid://qjxyxhlgaru2" path="res://components/modules/face/visage.gd" id="1_6y3wv"]
 [ext_resource type="PackedScene" uid="uid://cmukbi65qtnmq" path="res://components/modules/face/equaliser/equaliser.tscn" id="1_i0ykn"]
 [ext_resource type="Script" uid="uid://d1xlkqhyv57pv" path="res://other/animators/SceneAnimator.gd" id="1_puxky"]
-[ext_resource type="Shader" uid="uid://fbmh4pf0mw6t" path="res://components/modules/face/face_panel.gdshader" id="2_mstsd"]
+[ext_resource type="Script" uid="uid://cijf5rea3v2yf" path="res://components/modules/face/face_socket.gd" id="2_ihekv"]
 [ext_resource type="Texture2D" uid="uid://c4dmbu3h2txxh" path="res://other/loading.png" id="3_5d6og"]
+[ext_resource type="Shader" uid="uid://dt5po33byxdel" path="res://components/modules/chat/terminal/test.gdshader" id="4_puxky"]
 
-[sub_resource type="Animation" id="Animation_puxky"]
-resource_name = "start"
-length = 2.0
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_ihekv"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2/Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5d6og"]
-resource_name = "prepare"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/path = NodePath("cover:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2/Sprite2D:modulate")
+tracks/1/path = NodePath("cover/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -67,7 +39,7 @@ resource_name = "finish"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/path = NodePath("cover:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,24 +49,25 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ihekv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_5d6og"]
+resource_name = "prepare"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/path = NodePath("cover:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2/Sprite2D:modulate")
+tracks/1/path = NodePath("cover/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -102,6 +75,35 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.31, 0.4365, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_puxky"]
+resource_name = "start"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cover/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.31, 0.4365, 1, 0), Color(0.31, 0.4365, 1, 1), Color(0.31, 0.4365, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ihekv"]
@@ -112,14 +114,26 @@ _data = {
 &"start": SubResource("Animation_puxky")
 }
 
-[sub_resource type="SphereMesh" id="SphereMesh_pr22p"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_k2npo"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v4cvb"]
-shader = ExtResource("2_mstsd")
+shader = ExtResource("4_puxky")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.604
+shader_parameter/warp_amount = 0.0
+shader_parameter/vignette_amount = 0.203
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/grille_amount = 1.0
+shader_parameter/brightness_boost = 1.2
 
-[node name="visage" type="Node2D"]
+[node name="visage" type="Node2D" node_paths=PackedStringArray("equaliser")]
+script = ExtResource("1_6y3wv")
+equaliser = NodePath("Equaliser")
+color1Eye = Color(0.305882, 0.435294, 1, 1)
+color2Eye = Color(0.503882, 0.00336626, 0.944383, 1)
+color1Mouth = Color(0.305882, 0.435294, 1, 1)
+color2Mouth = Color(0.501961, 0.00392157, 0.945098, 1)
+
+[node name="faceSocket" type="Node" parent="."]
+script = ExtResource("2_ihekv")
 
 [node name="SceneAnimator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -129,35 +143,24 @@ script = ExtResource("1_puxky")
 type = 5
 metadata/_custom_type_script = "uid://d1xlkqhyv57pv"
 
-[node name="rightEye" type="MeshInstance2D" parent="."]
-modulate = Color(0.305882, 0.435294, 1, 1)
-position = Vector2(880, 220)
-scale = Vector2(126.7, 198.1)
-mesh = SubResource("SphereMesh_pr22p")
-
-[node name="leftEye" type="MeshInstance2D" parent="."]
-modulate = Color(0.305882, 0.435294, 1, 1)
-position = Vector2(400, 220)
-scale = Vector2(126.7, 198.1)
-mesh = SubResource("SphereMesh_k2npo")
-
 [node name="Equaliser" parent="." instance=ExtResource("1_i0ykn")]
+width = 25.0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="cover" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = -37.0
 offset_top = -23.0
 offset_right = 1366.0
 offset_bottom = 1041.0
-color = Color(0, 0, 0, 1)
+color = Color(0.02, 0.02, 0.02, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect2"]
+[node name="Sprite2D" type="Sprite2D" parent="cover"]
 modulate = Color(0.31, 0.4365, 1, 0)
 position = Vector2(684, 509)
 scale = Vector2(2.945, 2.945)
 texture = ExtResource("3_5d6og")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="shader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_v4cvb")
 offset_right = 1280.0
 offset_bottom = 960.0

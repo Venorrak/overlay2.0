@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjpyqmcfacdi0"]
+
+[ext_resource type="SpriteFrames" uid="uid://6fdnyrtqx3m8" path="res://components/modules/content/JoelShower/Joel-2x.gif" id="1_8y6v3"]
+[ext_resource type="Script" uid="uid://bql3wcx61b62m" path="res://components/modules/content/JoelShower/joel.gd" id="1_aw883"]
+
+[node name="Joel" type="Node2D" node_paths=PackedStringArray("gif")]
+script = ExtResource("1_aw883")
+gif = NodePath("AnimatedSprite2D")
+fallSpeed = 50.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_8y6v3")
+animation = &"gif"
+frame_progress = 0.806057

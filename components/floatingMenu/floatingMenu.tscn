@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4nug3hjyvil1" path="res://components/floatingMenu/floating_menu.gd" id="1_ord3y"]
 [ext_resource type="Script" uid="uid://co2oftxv8j6dw" path="res://components/floatingMenu/panel_grid.gd" id="2_rwxnc"]
-[ext_resource type="Script" uid="uid://dxkt0ho223qu4" path="res://components/floatingMenu/camera_submenu.gd" id="3_d46hq"]
+[ext_resource type="Script" uid="uid://dxkt0ho223qu4" path="res://components/floatingMenu/other_submenu.gd" id="3_d46hq"]
 [ext_resource type="Script" uid="uid://j01t7u5h4b3o" path="res://components/floatingMenu/animation.gd" id="4_pybsn"]
 
 [node name="FloatingMenu" type="Window" node_paths=PackedStringArray("panel", "panelSelector", "panelGrid")]
@@ -26,10 +26,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
-custom_minimum_size = Vector2(250, 100)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
-offset_right = 250.0
-offset_bottom = 234.0
+offset_right = 112.0
+offset_bottom = 104.0
 
 [node name="TabContainer" type="TabContainer" parent="Control/PanelContainer"]
 layout_mode = 2
@@ -99,23 +99,29 @@ text = "down"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
-[node name="Camera" type="VBoxContainer" parent="Control/PanelContainer/TabContainer" node_paths=PackedStringArray("orthoBtn")]
+[node name="Other" type="VBoxContainer" parent="Control/PanelContainer/TabContainer" node_paths=PackedStringArray("orthoBtn", "fetchWindowListBtn")]
 visible = false
 layout_mode = 2
 script = ExtResource("3_d46hq")
 orthoBtn = NodePath("ortho")
+fetchWindowListBtn = NodePath("fetchList")
 metadata/_tab_index = 2
 
-[node name="ortho" type="CheckButton" parent="Control/PanelContainer/TabContainer/Camera"]
+[node name="ortho" type="CheckButton" parent="Control/PanelContainer/TabContainer/Other"]
 layout_mode = 2
 text = "orthogonal"
 
-[node name="Animation" type="VBoxContainer" parent="Control/PanelContainer/TabContainer" node_paths=PackedStringArray("prepareBtn", "startBtn", "finishBtn")]
+[node name="fetchList" type="Button" parent="Control/PanelContainer/TabContainer/Other"]
+layout_mode = 2
+text = "Fetch window List"
+
+[node name="Animation" type="VBoxContainer" parent="Control/PanelContainer/TabContainer" node_paths=PackedStringArray("prepareBtn", "startBtn", "finishBtn", "brbBtn")]
 layout_mode = 2
 script = ExtResource("4_pybsn")
 prepareBtn = NodePath("Button")
 startBtn = NodePath("Button2")
 finishBtn = NodePath("Button3")
+brbBtn = NodePath("CheckButton")
 metadata/_tab_index = 3
 
 [node name="Button" type="Button" parent="Control/PanelContainer/TabContainer/Animation"]
@@ -129,6 +135,10 @@ text = "Start start"
 [node name="Button3" type="Button" parent="Control/PanelContainer/TabContainer/Animation"]
 layout_mode = 2
 text = "finish start"
+
+[node name="CheckButton" type="CheckButton" parent="Control/PanelContainer/TabContainer/Animation"]
+layout_mode = 2
+text = "BRB"
 
 [connection signal="resized" from="Control/PanelContainer" to="." method="_on_panel_container_resized"]
 [connection signal="button_up" from="Control/PanelContainer/TabContainer/Panels/PanelGrid/up" to="Control/PanelContainer/TabContainer/Panels/PanelGrid" method="_on_up_button_up"]

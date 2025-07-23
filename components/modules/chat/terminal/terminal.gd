@@ -10,3 +10,5 @@ func handleNewMessage(payload : Dictionary) -> void:
 	newMessage.setContent(payload)
 	list.add_child(newMessage)
 	list.move_child(newMessage, 0)
+	if list.get_child_count() > 11:
+		list.get_child(11).queue_free()

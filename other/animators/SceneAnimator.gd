@@ -2,6 +2,7 @@ extends AnimationPlayer
 class_name SceneAnimator
 
 @export_enum("main", "other", "content", "chat", "gizmo", "face") var type
+@export var sounds : Array[AudioStream]
 
 func _ready() -> void:
 	AnimatorOperator.prepareStart.connect(prepare)
@@ -29,3 +30,6 @@ func start() -> void:
 
 func finish() -> void:
 	play("finish")
+
+func playSound(index : int, volume: float = 0.5) -> void:
+	AudioManager.playSound(sounds[index], volume)

@@ -9,3 +9,7 @@ signal toggleEditPanel(toggled_on: bool)
 
 #feed
 signal createAlert(title: String, message: String)
+
+#other
+signal fetchWindowList
+signal toggleBrb(b : bool)

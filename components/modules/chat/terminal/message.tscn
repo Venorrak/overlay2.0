@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8lajmkfo5c8f"]
+[gd_scene load_steps=11 format=3 uid="uid://c8lajmkfo5c8f"]
 
 [ext_resource type="Script" uid="uid://bcvc2dguj054q" path="res://components/modules/chat/terminal/message.gd" id="1_es0o5"]
 [ext_resource type="Script" uid="uid://byva4jmdfgv5i" path="res://addons/richtext2/text_effects/anims/rte_console.gd" id="2_i1p6v"]
 [ext_resource type="AudioStream" uid="uid://cjxdd0l5e7240" path="res://components/modules/chat/terminal/message2.mp3" id="2_to715"]
-[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_dgv5i"]
+[ext_resource type="FontFile" uid="uid://bb62d7tm44v0q" path="res://unifont-16.0.03.otf" id="3_i1p6v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to715"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11,18 +11,31 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="Theme" id="Theme_xieqy"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_to715")
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_i1p6v"]
+[sub_resource type="FontVariation" id="FontVariation_dgv5i"]
+base_font = ExtResource("3_i1p6v")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_to715"]
+base_font = ExtResource("3_i1p6v")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_xieqy"]
+base_font = ExtResource("3_i1p6v")
+variation_embolden = 1.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2wytj"]
 resource_name = "console"
 script = ExtResource("2_i1p6v")
-metadata/rt = 78456150908474
+metadata/rt = 110806180278626
 
-[node name="message" type="PanelContainer" node_paths=PackedStringArray("label", "timer")]
+[node name="message" type="PanelContainer" node_paths=PackedStringArray("label")]
 offset_right = 310.0
 offset_bottom = 1076.0
 theme = SubResource("Theme_xieqy")
 script = ExtResource("1_es0o5")
 label = NodePath("text")
-timer = NodePath("Timer")
 baseColor = Color(0.305882, 0.435294, 1, 1)
 baseSound = ExtResource("2_to715")
 
@@ -31,6 +44,10 @@ clip_contents = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.305882, 0.435294, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0565486, 0.0903484, 0.19524, 1)
+theme_override_fonts/normal_font = ExtResource("3_i1p6v")
+theme_override_fonts/italics_font = SubResource("FontVariation_dgv5i")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_to715")
+theme_override_fonts/bold_font = SubResource("FontVariation_xieqy")
 theme_override_font_sizes/bold_italics_font_size = 29
 theme_override_font_sizes/italics_font_size = 29
 theme_override_font_sizes/mono_font_size = 29
@@ -40,83 +57,7 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 1
-custom_effects = [SubResource("RichTextEffect_i1p6v")]
-script = ExtResource("3_dgv5i")
-animation = "console"
-_hold = true
-_forced_finish_delay = -0.0194444
-animation = "console"
-default_wait_time = 1.0
-play_on_bbcode = true
-play_speed = 25.0
-fade_out = false
-fade_in_speed = 10.0
-fade_out_speed = 120.0
-ctc_offset = Vector2(1, -0.5)
-ctc_on_finished = false
-ctc_on_wait = false
-shortcut_expression = true
-shortcut_bookmark = true
-signal_quotes = true
-signal_stars = true
-bbcode = ""
-effects = 2
-alignment = 0
-color = Color(0.305882, 0.435294, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 29
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = false
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = false
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[purple]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 1.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://b6mbstaftpedd"
+custom_effects = [SubResource("RichTextEffect_2wytj")]
 metadata/rand = Array[int]([2597439165, 810906325, 4001738276, 2579284984, 4078286248, 2950095852, 2619193715, 2717746237, 3317640775, 4183309373, 1075985704, 1370250291, 1656382317, 1486191491, 1306969469, 4071388890, 978544120, 3840726949, 2829592090, 2674721592, 1754663830, 555389276, 1664285183, 1279807738, 644089242, 3369342119, 2395158527, 372870871, 1987994688, 2218286536, 3530913721, 1798237975, 102519155, 874442401, 2456828425, 2816280933, 1535020024, 2900644183, 955307347, 3390457953, 604995889, 2145561600, 1282274187, 1739859582, 2408555939, 3943123675, 1800070243, 4257442909, 787142242, 2759656101, 395023777])
 metadata/mouse_position = Vector2(997.247, 360.99)
 metadata/frame = 309488
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-ignore_time_scale = true
-
-[connection signal="anim_finished" from="text" to="." method="_on_text_anim_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://npkh6e4o6mcp"]
+[gd_scene load_steps=9 format=3 uid="uid://npkh6e4o6mcp"]
 
 [ext_resource type="Script" uid="uid://db3s6px3eeoo2" path="res://components/modules/gizmos/types/Alerts/alert_feed.gd" id="1_lvnt6"]
 [ext_resource type="PackedScene" uid="uid://cwh7csn5iydrx" path="res://components/modules/gizmos/types/Alerts/alert.tscn" id="2_pq6yx"]
@@ -6,16 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://cignoibauomvx" path="res://components/modules/gizmos/types/Alerts/sounds/yay.mp3" id="3_sqcq3"]
 [ext_resource type="AudioStream" uid="uid://cux1p2xmbxpwm" path="res://components/modules/gizmos/types/Alerts/sounds/ads.mp3" id="5_1yf3u"]
 [ext_resource type="AudioStream" uid="uid://bftoqqcs20a2i" path="res://components/modules/gizmos/types/Alerts/sounds/raid2.mp3" id="5_fhrrm"]
-[ext_resource type="Script" uid="uid://dcix070n06qm8" path="res://addons/richtext2/text_effects/anims/rte_wfc.gd" id="7_fhrrm"]
-[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="8_na1qf"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="7_1yf3u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yekny"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_ovbdf"]
-resource_name = "wfc"
-script = ExtResource("7_fhrrm")
-metadata/rt = 6304944959099
 
 [node name="AlertFeed" type="Node2D" node_paths=PackedStringArray("list")]
 script = ExtResource("1_lvnt6")
@@ -54,7 +48,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yekny")
 [node name="VBoxContainer" type="VBoxContainer" parent="list/placeholder"]
 layout_mode = 2
 
-[node name="RichTextAnimation" type="RichTextLabel" parent="list/placeholder/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="list/placeholder/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16.1)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.305882, 0.435294, 1, 1)
@@ -66,30 +60,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 scroll_active = false
-custom_effects = [SubResource("RichTextEffect_ovbdf")]
-script = ExtResource("8_na1qf")
-animation = "wfc"
-progress = 1.0
-visible_character = 24
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 8, 14), Transform2D(1, 0, 0, 1, 16, 14), Transform2D(1, 0, 0, 1, 24, 14), Transform2D(1, 0, 0, 1, 32, 14), Transform2D(1, 0, 0, 1, 40, 14), Transform2D(1, 0, 0, 1, 48, 14), Transform2D(1, 0, 0, 1, 56, 14), Transform2D(1, 0, 0, 1, 64, 14), Transform2D(1, 0, 0, 1, 72, 14), Transform2D(1, 0, 0, 1, 80, 14), Transform2D(1, 0, 0, 1, 88, 14), Transform2D(1, 0, 0, 1, 96, 14), Transform2D(1, 0, 0, 1, 104, 14), Transform2D(1, 0, 0, 1, 112, 14), Transform2D(1, 0, 0, 1, 120, 14), Transform2D(1, 0, 0, 1, 128, 14), Transform2D(1, 0, 0, 1, 136, 14), Transform2D(1, 0, 0, 1, 144, 14), Transform2D(1, 0, 0, 1, 152, 14), Transform2D(1, 0, 0, 1, 160, 14), Transform2D(1, 0, 0, 1, 168, 14), Transform2D(1, 0, 0, 1, 176, 14), Transform2D(1, 0, 0, 1, 184, 14)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(8, 12), Vector2(8, 12), Vector2(8, 12), Vector2(8, 12), Vector2(8, 12), Vector2(8, 12), Vector2(8, 12), Vector2(4, 12), Vector2(0, 12), Vector2(8, 12), Vector2(7, 12), Vector2(8, 12), Vector2(8, 12), Vector2(7, 12), Vector2(8, 12), Vector2(8, 12), Vector2(0, 12), Vector2(8, 12), Vector2(7, 12), Vector2(8, 12), Vector2(8, 12), Vector2(8, 12), Vector2(9, 12)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_forced_finish_delay = -0.0107507
-animation = "wfc"
-default_wait_time = 1.0
-play_on_bbcode = true
-play_speed = 15.0
-fade_out = false
-fade_in_speed = 10.0
-fade_out_speed = 120.0
-ctc_offset = Vector2(1, -0.5)
-ctc_on_finished = false
-ctc_on_wait = false
-shortcut_expression = true
-shortcut_bookmark = true
-signal_quotes = true
-signal_stars = true
+script = ExtResource("7_1yf3u")
 bbcode = "Venorrak: Started Stream"
 effects = 2
 alignment = 0
@@ -139,7 +110,7 @@ meta_cursor = 2
 override_bbcodeEnabled = true
 override_clipContents = true
 override_fitContent = false
-metadata/_custom_type_script = "uid://b6mbstaftpedd"
+metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/rand = Array[int]([743065701, 16252038, 3823925180, 1488032378, 895055815, 1945669811, 2245485491, 4148024493, 1983858271, 487526195, 3047316464, 562807337, 4023657280, 960522082, 2976755672, 816633566, 33492590, 2382526306, 2563511594, 3676692839, 4007531495, 3060139229, 481488319, 1744138855, 4294671989, 4271760912, 3767227344, 192362370, 3096640994, 4081560963, 243346404, 3852414686, 2837451702, 3095510089, 3304455540, 2530344307, 2638546243, 2795838595, 3255258158, 450563463, 4094052944, 2017687144, 646378264, 2419086217, 3977148445, 3398405761, 446602692, 3025379806, 3073229435, 3339364312, 3253236245, 328123142, 2895984376, 3740312656, 2264745867, 404183846, 1762138666, 1636494034, 3298005114, 3472693436, 726525465, 2610635541, 1725550605, 2026962104, 1346735736, 2157175819, 1199709148, 1110413397, 232391773, 2755867521])
 
 [node name="Label" type="Label" parent="list/placeholder/VBoxContainer"]

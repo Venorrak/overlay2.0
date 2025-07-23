@@ -14,8 +14,9 @@ func _on_timer_timeout() -> void:
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code == 200:
 		var pkt = json.parse_string(body.get_string_from_utf8())
-		var jcp : int = int(pkt[0]["JCP"])
-		_refreshDisplay(jcp)
+		if pkt:
+			var jcp : int = int(pkt[0]["JCP"])
+			_refreshDisplay(jcp)
 
 func _refreshDisplay(jcp : int) -> void:
 	var increment : int = jcp / 10

@@ -1,28 +1,43 @@
 extends Node2D
 
-@export var poller : WindowPoller
+var poller : WindowPoller
 @export var windowScene : PackedScene
 
 var windows : Array = []
-var acceptedWindows : Array[String] = [
-	"godot_v4.4.1-stable_win64",
-	"windowsterminal",
-	"brave",
-	"code"
-]
+var acceptedWindows : Array = []
 
-var nameExeptions : Array[String] = [
-	"overlay2.0 (debug)",
-	"menu"
-]
+var nameExeptions : Array = []
 
 func _ready() -> void:
+	fetchWindowWhiteList()
+	SignalBus.fetchWindowList.connect(fetchWindowWhiteList)
+	
+
+func fetchWindowWhiteList() -> void:
+	var json = JSON.new()
+	var json_string = FileAccess.get_file_as_string("res://components/modules/content/capture/windowList.json")
+	var error = json.parse(json_string)
+	if error == OK:
+		var data = json.data
+		acceptedWindows = data["whiteList"]
+		nameExeptions = data["blackList"]
+	
+	for win in windows:
+			win.shutDown()
+			windows.erase(win)
+	
+	if poller:
+		poller.queue_free()
+	poller = WindowPoller.new()
+	add_child(poller)
 	poller.focus_change.connect(focusChange)
 	poller.window_closed.connect(windowClosed)
 	poller.window_opened.connect(windowOpened)
 
 func focusChange(hwnd : int) -> void:
-	if not getWindowExeName(hwnd) in acceptedWindows or not getWindowFromHwnd(hwnd) : return
+	var windowName : String = getWindowExeName(hwnd)
+	Loggie.info("Window focus switched to : ", windowName)
+	if not windowName in acceptedWindows or not getWindowFromHwnd(hwnd) : return
 	for win in windows:
 		if win.hwnd != hwnd:
 			win.visible = false
