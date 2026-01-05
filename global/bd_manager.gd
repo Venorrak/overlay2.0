@@ -1,6 +1,6 @@
 extends Node
 
-var adress : String = "http://192.168.0.16:5001"
+var adress : String = "http://192.168.0.152:5001"
 var json : JSON = JSON.new()
 var requests : Array = []
 

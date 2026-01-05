@@ -2,6 +2,7 @@ extends Node2D
 
 var poller : WindowPoller
 @export var windowScene : PackedScene
+@export var screenIndex : int
 
 var windows : Array = []
 var acceptedWindows : Array = []
@@ -29,6 +30,7 @@ func fetchWindowWhiteList() -> void:
 	if poller:
 		poller.queue_free()
 	poller = WindowPoller.new()
+	poller.monitor_index = screenIndex
 	add_child(poller)
 	poller.focus_change.connect(focusChange)
 	poller.window_closed.connect(windowClosed)

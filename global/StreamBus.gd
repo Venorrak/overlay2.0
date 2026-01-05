@@ -10,7 +10,7 @@ signal callBackendCommand(commandName: String, data: Dictionary)
 var subscriptions : Dictionary[String, Array] = {}
 
 func _ready() -> void:
-	server.connect_to_url("ws://192.168.0.16:5000")
+	server.connect_to_url("ws://192.168.0.152:5000")
 	callBackendCommand.connect(callCommand)
 	
 func _process(delta: float) -> void:
